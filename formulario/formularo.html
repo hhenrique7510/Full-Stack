@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+    <form>
+    <h1>Nova propriedade</h1>
+  <label for="Nome"><b>Nome</b></label>
+  <input type="text" id="texto" name="texto" placeholder="Nome">
+  <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
+  <input type="text" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/AAAA" maxlength="10" required>
+
+  <label for="Telefone"><b>Telefone</b></label>
+  <input type="text" id="Telefone" name="telefone" placeholder="(xx)xxxxx-xxxx" maxlength="14" required>
+
+    <label for="cpf"><b>CPF</b></label>
+    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+
+  <label for="Gênero"><b>Gênero</b></label>
+  <select name="Gênero" id="Gênero">
+  <option value="text">Escolha seu Gênero</option>
+  <option value="text">Masculino</option>
+  <option value="text">Femenino</option>
+  </select>
+
+  <h5>Itens para listagem separado por ('.'). Ex: 'Um,Dois,Três'</h5>
+  <hr>
+<div class="button_group">
+<button id ="button_Cancel">Cancelar</button>
+<button id ="button_Confirm">Confirmar</button>
+</div>
+</form>
+  </script>
+  <script src="formulario.js"></script>
+</body>
+</html>
