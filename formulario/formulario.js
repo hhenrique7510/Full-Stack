@@ -44,16 +44,13 @@ document.getElementById("Telefone").addEventListener("input", function(e) {
 });
 
 //CRUD
-// Lista para armazenar as propriedades
 let propriedades = [];
 let editIndex = -1;
 
-// Referências dos elementos
 const formulario = document.getElementById("formulario");
 const tabela = document.getElementById("Tabela").querySelector("tbody");
 const buttonCancel = document.getElementById("button_Cancel");
 
-// Função para atualizar a tabela na tela
 function atualizarTabela() {
     tabela.innerHTML = "";
     propriedades.forEach((prop, idx) => {
@@ -65,8 +62,8 @@ function atualizarTabela() {
             <td>${prop.cpf}</td>
             <td>${prop.genero}</td>
             <td>
-                <button onclick="editarPropriedade(${idx})">Editar</button>
-                <button onclick="deletarPropriedade(${idx})">Excluir</button>
+                <button class="px-2 py-1 rounded bg-gray-300 text-gray-800 hover:bg-gray-400" onclick="editarPropriedade(${idx})">Editar</button>
+                <button class="px-2 py-1 rounded bg-blue-600 text-white hover:bg-blue-700" onclick="deletarPropriedade(${idx})">Excluir</button>
             </td>
         `;
         tabela.appendChild(row);
@@ -97,14 +94,12 @@ formulario.addEventListener("submit", function(e) {
     formulario.reset();
 });
 
-// Cancelar edição
 buttonCancel.addEventListener("click", function(e) {
     e.preventDefault();
     formulario.reset();
     editIndex = -1;
 });
 
-// Editar propriedade
 window.editarPropriedade = function(index) {
     const prop = propriedades[index];
     document.getElementById("texto").value = prop.nome;
@@ -115,7 +110,6 @@ window.editarPropriedade = function(index) {
     editIndex = index;
 };
 
-// Deletar propriedade
 window.deletarPropriedade = function(index) {
     if (confirm("Deseja excluir este registro?")) {
         propriedades.splice(index, 1);
