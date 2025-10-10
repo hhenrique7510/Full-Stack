@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="formulario.css">
 </head>
 <body>
-    <form>
+    <form id="formulario">
     <h1>Nova propriedade</h1>
-  <label for="Nome"><b>Nome</b></label>
-  <input type="text" id="texto" name="texto" placeholder="Nome">
-  <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
-  <input type="text" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/AAAA" maxlength="10" required>
+    <label for="Nome"><b>Nome</b></label>
+    <input type="text" id="texto" name="texto" placeholder="Nome">
+    <label for="Data de Nascimento"><b>Data de Nascimento</b></label>
+    <input type="text" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/AAAA" maxlength="10" required>
 
-  <label for="Telefone"><b>Telefone</b></label>
-  <input type="text" id="Telefone" name="telefone" placeholder="(xx)xxxxx-xxxx" maxlength="14" required>
+    <label for="Telefone"><b>Telefone</b></label>
+    <input type="text" id="Telefone" name="telefone" placeholder="(xx)xxxxx-xxxx"required>
 
     <label for="cpf"><b>CPF</b></label>
     <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
 
-  <label for="Gênero"><b>Gênero</b></label>
-  <select name="Gênero" id="Gênero">
-  <option value="text">Escolha seu Gênero</option>
-  <option value="text">Masculino</option>
-  <option value="text">Femenino</option>
+    <label for="Genero"><b>Gênero</b></label>
+    <select name="Genero" id="Genero">
+    <option >Escolha seu Gênero</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Femenino">Femenino</option>
   </select>
 
   <h5>Itens para listagem separado por ('.'). Ex: 'Um,Dois,Três'</h5>
@@ -34,6 +34,19 @@
 <button id ="button_Confirm">Confirmar</button>
 </div>
 </form>
+ <h2>Propriedades Cadastradas</h2>
+  <table  id="Tabela">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Data Nascimento</th>
+        <th>Telefone</th>
+        <th>CPF</th>
+        <th>Gênero</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
   </script>
   <script src="formulario.js"></script>
 </body>
