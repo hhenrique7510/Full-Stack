@@ -1,3 +1,5 @@
+//SO para da commit
+
 import React, { useState, useRef, useEffect } from "react";
 
 interface Entregador {
@@ -13,7 +15,6 @@ const Entregadores: React.FC = () => {
     { id: 2, nome: "SmartCardapio 2", telefone: "(81) 91111-2222", dataCadastro: "09/10/2025" },
     { id: 3, nome: "SmartCardapio 3", telefone: "(81) 97777-3333", dataCadastro: "09/10/2025" },
     { id: 4, nome: "SmartCardapio 4", telefone: "(81) 94444-4444", dataCadastro: "09/10/2025" },
-    { id: 5, nome: "SmartCardapio 5", telefone: "(81) 96666-5555", dataCadastro: "09/10/2025" }
   ]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [novoNome, setNovoNome] = useState("");
