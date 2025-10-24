@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { useNavigate } from 'react-router-dom';
 import { NumericFormat } from 'react-number-format';
-
+import { trpc } from "./utils/trpc";
 
 
 function App() {
@@ -10,19 +10,27 @@ function App() {
   const [preco, setPreco] = useState("");
   const [descricao, setDescricao] = useState("");
   const navigate = useNavigate();
-  
-  
-  const handleAdicionar = () => {
-    const produto = { nome, preco, descricao };
-    const produtosSalvos = JSON.parse(localStorage.getItem("produtos")|| "[]");
-    produtosSalvos.push(produto);
-    localStorage.setItem("produtos", JSON.stringify(produtosSalvos));
-    navigate('/ListaProdutos', { state: produto });
-    setNome("");
-    setPreco("");
-    setDescricao("");
-    console.log("Produto adicionado:", produto);
-  };
+  const utils = trpc.useUtils();
+
+  const adicionarProduto = trpc.produto.add.useMutation({
+  onSuccess: () => {
+    utils.produto.getAll.invalidate(); 
+  },
+});
+
+  const handleAdicionar = async () => {
+  await adicionarProduto.mutateAsync({
+    nome,
+    preco: parseFloat(preco.replace(",", ".")),
+    descricao,
+  });
+
+  navigate("/ListaProdutos");
+  setNome("");
+  setPreco("");
+  setDescricao("");
+};
+
 
   return (
     <div className="max-w-sm mx-auto bg-white rounded-xl shadow-md p-6 flex flex-col gap-4">

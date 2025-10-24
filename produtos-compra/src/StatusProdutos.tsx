@@ -11,10 +11,12 @@ function StatusProdutos() {
   const [atualizar, setAtualizar] = useState(0);
   const produtosComprados: ProdutoComprado[] = JSON.parse(localStorage.getItem("produtosComprados") || "[]");
 
+  
+
   function trocarStatus(idx: number, novoStatus: ProdutoComprado["status"]) {
     produtosComprados[idx].status = novoStatus;
     localStorage.setItem("produtosComprados", JSON.stringify(produtosComprados));
-    setAtualizar(restart => restart  + 1); 
+    setAtualizar(restart => restart + 1); 
   }
 
   return (
